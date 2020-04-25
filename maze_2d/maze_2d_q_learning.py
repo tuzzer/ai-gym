@@ -181,9 +181,9 @@ if __name__ == "__main__":
     recording_folder = "/tmp/maze_q_learning"
 
     if ENABLE_RECORDING:
-        env.monitor.start(recording_folder, force=True)
+        env = gym.wrappers.Monitor(env, recording_folder, force=True)
 
     simulate()
 
     if ENABLE_RECORDING:
-        env.monitor.close()
+        env.close()
